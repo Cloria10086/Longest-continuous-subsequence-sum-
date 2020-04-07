@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+const int N=10000;
+int main()
+{
+	int arr[N];
+	int x,j=0;
+	printf("请输入要查询的序列，以回车结束：\n");
+	while(cin>>x){
+        arr[j++]=x;
+	}
+	int prosum = 0;//记录元素之和
+	int maxsum = 0;//找出最大和
+	for(int i=0;i<j;i++)
+	{
+		if(prosum<0)
+			prosum = arr[i];
+		else
+			prosum += arr[i];
+		if(maxsum < prosum)
+			maxsum = prosum;
+		cout << "以" << arr[i] << "为右边界的子段和最大和为：" << maxsum << endl;
+	}
+	cout << "该序列字段最大和为：" << maxsum << endl;
+	return 0;
+}
